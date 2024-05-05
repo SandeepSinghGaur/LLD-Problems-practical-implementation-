@@ -2,9 +2,9 @@ package gameProblem.tictaktoe.model;
 
 
 
-import gameProblem.tictaktoe.Exception.DuplicateSymbolException;
-import gameProblem.tictaktoe.Exception.MoreThanOneBotPlayerException;
-import gameProblem.tictaktoe.Exception.PlayerCountDimensionMisMatchException;
+import gameProblem.tictaktoe.exception.DuplicateSymbolException;
+import gameProblem.tictaktoe.exception.MoreThanOneBotPlayerException;
+import gameProblem.tictaktoe.exception.PlayerCountDimensionMisMatchException;
 import gameProblem.tictaktoe.strategy.WinningStrategy.WinningStrategy;
 
 import java.util.ArrayList;
@@ -39,10 +39,51 @@ public class Game {
         this.board.printBoard();
     }
 
-    public Move makeMove() {
+    private boolean validateMove(Move move) {
+        //cell is empty
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+        if (row >= board.getSize()) return false;
+        if (col >= board.getSize()) return false;
+        if (board.getBoard().get(row).get(col).getCellState().equals(CellState.EMPTY)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean checkWinner(Board board, Move move){
+        for(WinningStrategy winningStrategy:winningStrategies){
+            if(winningStrategy.checkWinner(board,move)){
+                return  true;
+            }
+
+        }
+        return false;
+    }
+
+    public void  makeMove() {
         Player currentMovePlayer = players.get(nextMovePlayerIndex);
-        System.out.printf(STR."current player name: \{currentMovePlayer.getName()} current player type: \{currentMovePlayer.getPlayerType()}");
-        return currentMovePlayer.makeMove();
+        System.out.printf(STR."It is \{currentMovePlayer.getName()}\'s turn please make your move \ncurrent player type: \{currentMovePlayer.getPlayerType()}\n");
+        Move move = currentMovePlayer.makeMove(board);
+        if(!validateMove(move)) return;
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+        Cell cellToChange = board.getBoard().get(row).get(col);
+        cellToChange.setCellState(CellState.FILLED);
+        cellToChange.setPlayer(currentMovePlayer);
+        Move finalMove = new Move(cellToChange,currentMovePlayer);
+        moves.add(finalMove);
+        nextMovePlayerIndex += 1;
+        nextMovePlayerIndex %= players.size();
+        if (checkWinner(board, finalMove)) {
+            gameState = GameState.WIN;
+            winner = currentMovePlayer;
+            System.out.println(STR."Player \{winner.getName()} Won the match");
+        }
+        if (moves.size() == this.board.getSize() * this.board.getSize()) {
+            gameState = GameState.DRAW;
+        }
 
     }
 

@@ -16,8 +16,10 @@ public class Bot extends Player{
     public Bot(){
 
     }
-    public Move makeMove(){
-       return super.makeMove();
+    public Move makeMove(Board board){
+       Move move = botPlayingStrategy.makeMove(board);
+       move.setPlayer(this);
+        return move;
     }
 
     public BotDifficultyLevel getBotDifficultyLevel() {

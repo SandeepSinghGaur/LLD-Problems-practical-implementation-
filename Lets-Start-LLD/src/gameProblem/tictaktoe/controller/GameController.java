@@ -2,9 +2,9 @@ package gameProblem.tictaktoe.controller;
 
 
 
-import gameProblem.tictaktoe.Exception.DuplicateSymbolException;
-import gameProblem.tictaktoe.Exception.MoreThanOneBotPlayerException;
-import gameProblem.tictaktoe.Exception.PlayerCountDimensionMisMatchException;
+import gameProblem.tictaktoe.exception.DuplicateSymbolException;
+import gameProblem.tictaktoe.exception.MoreThanOneBotPlayerException;
+import gameProblem.tictaktoe.exception.PlayerCountDimensionMisMatchException;
 import gameProblem.tictaktoe.model.Game;
 import gameProblem.tictaktoe.model.GameState;
 import gameProblem.tictaktoe.model.Player;

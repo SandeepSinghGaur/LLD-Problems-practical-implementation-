@@ -14,7 +14,7 @@ public class Main {
             int dimension = 3;
             List<Player> players = new ArrayList<>();
             players.add(new Player(new Symbol('X'),"Sandeep",1L, PlayerType.HUMAN));
-            players.add(new Bot(new Symbol('Y'),"GPT",2L, BotDifficultyLevel.HARD));
+            players.add(new Bot(new Symbol('Y'),"GPT",2L, BotDifficultyLevel.EASY));
             List<WinningStrategy> winningStrategies = new ArrayList<>();
             Game game = gameController.startGame(dimension,players,winningStrategies);
             while(gameController.checkState(game).equals(GameState.IN_PROGRESS)){

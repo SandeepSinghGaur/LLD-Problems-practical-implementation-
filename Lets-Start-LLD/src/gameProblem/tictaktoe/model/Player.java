@@ -20,7 +20,7 @@ public class Player {
     public Player() {
     }
 
-    public Move makeMove() {
+    public Move makeMove(Board board) {
         System.out.println("Please tell row count where you want to move (Starting from 0)");
         int row = scanner.nextInt();
         System.out.println("Please tell col count where you want to move (Starting from 0)");
