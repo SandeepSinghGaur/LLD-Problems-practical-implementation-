@@ -80,10 +80,13 @@ public class Game {
             gameState = GameState.WIN;
             winner = currentMovePlayer;
             System.out.println(STR."Player \{winner.getName()} Won the match");
+            return;
+        }else{
+            if (moves.size() == this.board.getSize() * this.board.getSize()) {
+                gameState = GameState.DRAW;
+            }
         }
-        if (moves.size() == this.board.getSize() * this.board.getSize()) {
-            gameState = GameState.DRAW;
-        }
+
 
     }
 
