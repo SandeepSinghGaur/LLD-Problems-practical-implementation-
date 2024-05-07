@@ -1,6 +1,6 @@
 # Problem Statement: Word Square Finder
 
-![Word Square Example](wordsquare.jpg)
+![word square game.png](word%20square%20game.png)
 
 ## Overview
 Given a set of words (without duplicates), the task is to find all word squares that can be built from them.
