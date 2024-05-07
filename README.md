@@ -99,3 +99,16 @@ The system should support two online players to play a game of chess following a
 
 ### Additional Notes
 - Consider implementing a graphical interface for a better user experience.
+
+# Problem Statement: Word Square Finder
+
+![word square game.png](Lets-Start-LLD%2Fsrc%2FgameProblem%2FdesignWordSquare%2Fword%20square%20game.png)
+
+## Overview
+Given a set of words (without duplicates), the task is to find all word squares that can be built from them.
+
+## Definition
+A sequence of words forms a valid word square if the kth row and column read the exact same string, where 0 ≤ k < max(numRows, numColumns).
+
+## Example
+For example, the word sequence ["ball","area","lead","lady"] forms a word square because each word reads the same both horizontally and vertically.
