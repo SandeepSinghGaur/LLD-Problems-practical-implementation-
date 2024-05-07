@@ -26,7 +26,7 @@ The system should allow one human player to play against one bot in a game of Ti
     - Quit the game.
 
 
-**[Code Link]([tictaktoe](Lets-Start-LLD%2Fsrc%2FgameProblem%2Ftictaktoe)link_to_your_codebase)**
+**[Code Link]([[tictaktoe](Lets-Start-LLD%2Fsrc%2FgameProblem%2Ftictaktoe)link_to_your_codebase](https://github.com/SandeepSinghGaur/LLD-Problems-practical-implementation-/tree/master/Lets-Start-LLD/src/gameProblem/tictaktoe))**
 
 ### Implementation
 - Backend: [Insert backend language/framework]
