@@ -6,15 +6,10 @@ import java.util.Map;
 public class Board {
     private List<List<Cell>> board;
     int size;
-    private Map<Cell, Cell> snakeMappings;
-    private Map<Cell, Cell> ladderMappings;
+    private Snake snakeMappings;
+    private Ladder ladderMappings;
 
-    public Board(List<List<Cell>> board, int size, Map<Cell, Cell> snakeMappings, Map<Cell, Cell> ladderMappings) {
-        this.board = board;
-        this.size = size;
-        this.snakeMappings = snakeMappings;
-        this.ladderMappings = ladderMappings;
-    }
+
 
     public List<List<Cell>> getBoard() {
         return board;
@@ -32,19 +27,7 @@ public class Board {
         this.size = size;
     }
 
-    public Map<Cell, Cell> getSnakeMappings() {
-        return snakeMappings;
-    }
 
-    public void setSnakeMappings(Map<Cell, Cell> snakeMappings) {
-        this.snakeMappings = snakeMappings;
-    }
 
-    public Map<Cell, Cell> getLadderMappings() {
-        return ladderMappings;
-    }
 
-    public void setLadderMappings(Map<Cell, Cell> ladderMappings) {
-        this.ladderMappings = ladderMappings;
-    }
 }
